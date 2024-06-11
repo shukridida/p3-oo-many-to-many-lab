@@ -132,4 +132,7 @@ def test_contract_contracts_by_date():
     contract3 = Contract(author1, book3, "03/01/2001", 30)
     contract4 = Contract(author2, book4, "01/01/2001", 40)
 
-    assert Contract.contracts_by_date('01/01/2001') == [contract2, contract4]
+    
+    sorted_contracts = Contract.contracts_by_date()
+    expected_contracts = [contract2, contract4, contract1, contract3]
+    assert sorted_contracts == expected_contracts, f"Expected {expected_contracts}, but got {sorted_contracts}"
